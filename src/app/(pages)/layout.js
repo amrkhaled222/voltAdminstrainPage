@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Nav from "../_components/Nav";
 import notification from "../_assets/notification.png";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import MobileNav from "../_components/MobileNav";
 import Link from "next/link";
 import nextIcon from "../_assets/next.png";
 import logOutIcon from "../_assets/logOut.png";
+import PathTitle from "../_components/PathTitle";
 
 export default function RootLayout({ children }) {
 	const [AdminActive, toogleAdmin] = useState(false);
@@ -50,10 +52,12 @@ export default function RootLayout({ children }) {
 							<MobileNav></MobileNav>
 						</div>
 						<div className="flex gap-4 items-center   ">
-							<Image
-								alt="notification"
-								className=" w-6 h-6"
-								src={notification}></Image>
+							<button className="cursor-pointer">
+								<Image
+									alt="notification"
+									className=" w-6 h-6"
+									src={notification}></Image>
+							</button>
 
 							<div
 								ref={AdminRef}
@@ -75,7 +79,7 @@ export default function RootLayout({ children }) {
 								</div>
 
 								<div
-									className={`w-1/2 sm:w-[230px]  absolute bg-white duration-700 ease-in-out  ${
+									className={`w-1/2 sm:w-[230px]  absolute bg-white duration-500 ease-in-out  ${
 										AdminActive ? ` ${transitionin} ` : ` ${transitionout}`
 									} flex flex-col  top-20 md:top-[110px]  right-8 text-black  z-20 p-4 rounded-md text-sm w-1/2   lg:gap-4 gap-2  `}>
 									<h2 className=" font-medium capitalize p-1">Admin</h2>
@@ -102,13 +106,17 @@ export default function RootLayout({ children }) {
 						</div>
 					</div>
 				</header>
-				<div className="relative">
+				<div className="relative bg-mainBg">
 					{/* make over lay*/}
-					<div
-						className={`h-svh w-full bg-black opacity-40  absolute top-0 ${
-							AdminActive ? "block" : "hidden"
-						} z-10`}></div>
+
+					{AdminActive && (
+						<div
+							className={`h-svh w-full bg-overlay absolute top-0 z-10`}></div>
+					)}
+					<PathTitle></PathTitle>
+
 					{children}
+
 					<footer></footer>
 				</div>
 			</div>

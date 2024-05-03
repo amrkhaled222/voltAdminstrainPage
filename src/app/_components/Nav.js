@@ -25,7 +25,7 @@ export default function Nav() {
 			<ul className=" list-none flex-col gap-3 ">
 				<li>
 					<Link
-						href={"./dashboard"}
+						href={"/dashboard"}
 						className={`${linkStyling} ${
 							pathname == "/dashboard"
 								? "bg-darkBlue text-white "
@@ -42,7 +42,7 @@ export default function Nav() {
 				</li>
 				<li>
 					<Link
-						href={"./allProduct"}
+						href={"/allProduct"}
 						className={`${linkStyling} ${
 							pathname == "/allProduct"
 								? "bg-darkBlue text-white"
@@ -59,7 +59,7 @@ export default function Nav() {
 				</li>
 				<li>
 					<Link
-						href={"./orderList"}
+						href={"/orderList"}
 						className={`${linkStyling} ${
 							pathname == "/orderList"
 								? "bg-darkBlue text-white px-2"
@@ -76,7 +76,7 @@ export default function Nav() {
 				</li>
 				<li>
 					<Link
-						href={"./customers"}
+						href={"/customers"}
 						className={`${linkStyling} ${
 							pathname == "/customers"
 								? "bg-darkBlue text-white px-2"

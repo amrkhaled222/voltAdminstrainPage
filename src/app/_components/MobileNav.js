@@ -21,6 +21,7 @@ function MobileNav() {
 	const handleburgerbutton = () => {
 		tooglemenu((e) => !e);
 	};
+	const pathname = usePathname();
 
 	let menuRef = useRef(0);
 
@@ -29,7 +30,6 @@ function MobileNav() {
 
 		const handleOutSideClick = (event) => {
 			if (menuRef.current && !menuRef.current.contains(event.target)) {
-				console.log("hereeee");
 				tooglemenu(() => false);
 			}
 		};
@@ -40,19 +40,20 @@ function MobileNav() {
 		};
 	}, [menu]);
 
+	useEffect(() => {
+		tooglemenu(false);
+	}, [pathname]);
 	let transitionin = " translate-x-0  opacity-100";
 	let transitionout = " translate-x-[-100%]  opacity-0";
 	let linkStyling =
 		"flex uppercase  text-sm hover:scale-95 py-4 rounded-md duration-300 px-2 flex gap-3 item-center  ";
 
-	const pathname = usePathname();
-
 	return (
 		<div>
-			<div
-				className={`h-svh w-full bg-black opacity-40  absolute  left-0 top-16 ${
-					menu ? "block" : "hidden"
-				} z-10`}></div>
+			{menu && (
+				<div
+					className={`h-svh w-full bg-overlay  absolute  left-0 top-16  z-10`}></div>
+			)}
 
 			<div
 				ref={menuRef}
@@ -72,7 +73,7 @@ function MobileNav() {
 					<ul className=" list-none flex-col gap-3 ">
 						<li>
 							<Link
-								href={"./dashboard"}
+								href={"/dashboard"}
 								className={`${linkStyling} ${
 									pathname == "/dashboard"
 										? "bg-darkBlue text-white "
@@ -91,7 +92,7 @@ function MobileNav() {
 						</li>
 						<li>
 							<Link
-								href={"./allProduct"}
+								href={"/allProduct"}
 								className={`${linkStyling} ${
 									pathname == "/allProduct"
 										? "bg-darkBlue text-white"
@@ -108,7 +109,7 @@ function MobileNav() {
 						</li>
 						<li>
 							<Link
-								href={"./orderList"}
+								href={"/orderList"}
 								className={`${linkStyling} ${
 									pathname == "/orderList"
 										? "bg-darkBlue text-white px-2"
@@ -127,7 +128,7 @@ function MobileNav() {
 						</li>
 						<li>
 							<Link
-								href={"./customers"}
+								href={"/customers"}
 								className={`${linkStyling} ${
 									pathname == "/customers"
 										? "bg-darkBlue text-white px-2"
