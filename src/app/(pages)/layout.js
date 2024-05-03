@@ -34,10 +34,13 @@ export default function RootLayout({ children }) {
 			window.removeEventListener("click", handleOutSideClick);
 		};
 	}, [AdminActive]);
-
 	//end
+
+	// animation for admin menu
+	let transitionin = " translate-x-0  opacity-100";
+	let transitionout = " -translate-x-[700%]  opacity-0 ";
 	return (
-		<main className=" m-auto md:grid md:grid-cols-[260px,1fr] max-w-[1440px] ">
+		<main className=" m-auto md:grid md:grid-cols-[260px,1fr] max-w-[1440px]  ">
 			<Nav></Nav>
 
 			<div className=" relative">
@@ -46,14 +49,15 @@ export default function RootLayout({ children }) {
 						<div>
 							<MobileNav></MobileNav>
 						</div>
-						<div className="flex gap-4 items-center ">
+						<div className="flex gap-4 items-center   ">
 							<Image
 								alt="notification"
 								className=" w-6 h-6"
 								src={notification}></Image>
+
 							<div
 								ref={AdminRef}
-								className="uppercase">
+								className="uppercase ">
 								<div
 									onClick={handleAdminButton}
 									className={`flex px-4 py-2 uppercase rounded-md  items-center gap-1  border-2 cursor-pointer ${
@@ -69,10 +73,11 @@ export default function RootLayout({ children }) {
 											AdminActive ? downArrowActive : downArrowNonActive
 										}></Image>
 								</div>
+
 								<div
-									className={`w-1/4 sm:w-[230px]  absolute bg-white ${
-										AdminActive ? "flex" : "hidden"
-									}  flex-col  top-28 right-8 text-black  z-20 p-4 rounded-md text-sm w-1/2   lg:gap-4 gap-2 `}>
+									className={`w-1/2 sm:w-[230px]  absolute bg-white duration-700 ease-in-out  ${
+										AdminActive ? ` ${transitionin} ` : ` ${transitionout}`
+									} flex flex-col  top-20 md:top-[110px]  right-8 text-black  z-20 p-4 rounded-md text-sm w-1/2   lg:gap-4 gap-2  `}>
 									<h2 className=" font-medium capitalize p-1">Admin</h2>
 									<Link
 										href={""}

@@ -28,7 +28,7 @@ export default function Auth() {
 			<div className="w-full h-svh flex justify-center items-center container m-auto   ">
 				<div className="flex flex-col xl:w-1/3 md:w-1/2 w-[80%] gap-5  ">
 					<div className="flex flex-col gap-1">
-						<h2 className=" m-0 font-bold text-3xl">Loin</h2>
+						<h2 className=" m-0 font-bold text-3xl">Login</h2>
 						<Link
 							className={`  text-md ${opensans.className} text-seconderyItemColor`}
 							href={""}>
