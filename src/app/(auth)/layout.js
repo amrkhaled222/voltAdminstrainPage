@@ -1,5 +1,3 @@
-export default function AuthLayout({
-	children, // will be a page or nested layout
-}) {
+export default function AuthLayout({ children }) {
 	return <>{children}</>;
 }
