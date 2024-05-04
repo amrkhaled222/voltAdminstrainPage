@@ -23,7 +23,7 @@ function PathTitle() {
 			</div>
 			{pathname.length == 2 && pathname[1] == "allProduct" && (
 				<Link
-					className="bg-black text-white px-6 py-3 rounded-lg flex gap-2  text-sm items-center uppercase"
+					className="bg-black text-white px-6 py-3 rounded-lg flex gap-2  text-sm items-center uppercase hover:scale-95 duration-300"
 					href={"/allProduct/addProduct"}>
 					<Image
 						className="w-4 h-4"

@@ -66,7 +66,7 @@ function MobileNav() {
 				</button>
 
 				<nav
-					className={`absolute flex-col  h-svh   px-5 py-8 gap-8 rounded-sm shadow-md  flex sm:w-1/2 w-2/3    left-0 top-16 z-10    duration-300 bg-white ${
+					className={`absolute flex-col  h-svh   px-5 py-8 gap-8 rounded-sm shadow-md  flex sm:w-1/2 w-2/3    left-0 top-16 z-10    duration-300 bg-[#FAFAFA] ${
 						menu ? transitionin : transitionout
 					}`}>
 					<h1 className="text-darkBlue font-semibold  text-5xl">Volt</h1>

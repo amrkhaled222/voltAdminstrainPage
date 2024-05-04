@@ -42,11 +42,11 @@ export default function RootLayout({ children }) {
 	let transitionin = " translate-x-0  opacity-100";
 	let transitionout = " -translate-x-[700%]  opacity-0 ";
 	return (
-		<main className=" m-auto md:grid md:grid-cols-[260px,1fr] max-w-[1440px]  ">
+		<main className=" m-auto md:grid md:grid-cols-[260px,1fr] max-w-[1440px] min-h-svh  ">
 			<Nav></Nav>
 
-			<div className=" relative">
-				<header className="  shadow-md  relative ">
+			<div className=" relative  bg-mainBg  min-h-[107vh]  ">
+				<header className="  shadow-md  relative bg-[#FAFAFA] ">
 					<div className=" flex md:justify-end items-center justify-between m-auto p-2 md:p-5 container md:mr-auto  z-10">
 						<div>
 							<MobileNav></MobileNav>
@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
 							<button className="cursor-pointer">
 								<Image
 									alt="notification"
-									className=" w-6 h-6"
+									className=" w-6 h-6 hover:scale-95 duration-300"
 									src={notification}></Image>
 							</button>
 
@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
 								className="uppercase ">
 								<div
 									onClick={handleAdminButton}
-									className={`flex px-4 py-2 uppercase rounded-md  items-center gap-1  border-2 cursor-pointer ${
+									className={`flex px-4 py-2 uppercase rounded-md  items-center gap-1  border-2 cursor-pointer hover:scale-95 duration-300 ${
 										AdminActive
 											? "bg-darkBlue text-white border-darkBlue   "
 											: "border-black"
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
 									<h2 className=" font-medium capitalize p-1">Admin</h2>
 									<Link
 										href={""}
-										className="flex items-center justify-between p-1">
+										className="flex items-center justify-between p-1 hover:scale-95 duration-300">
 										change password{" "}
 										<Image
 											src={nextIcon}
@@ -93,7 +93,7 @@ export default function RootLayout({ children }) {
 											className="w-4 h-4"></Image>
 									</Link>
 									<Link
-										className="flex items-center justify-between p-1"
+										className="flex items-center justify-between p-1 hover:scale-95 duration-300"
 										href={""}>
 										log out{" "}
 										<Image
@@ -106,12 +106,12 @@ export default function RootLayout({ children }) {
 						</div>
 					</div>
 				</header>
-				<div className="relative bg-mainBg">
+				<div className="">
 					{/* make over lay*/}
 
 					{AdminActive && (
 						<div
-							className={`h-svh w-full bg-overlay absolute top-0 z-10`}></div>
+							className={` lg:h-[91%] h-[95%] w-full bg-overlay absolute top-50 z-10`}></div>
 					)}
 					<PathTitle></PathTitle>
 

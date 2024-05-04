@@ -4,14 +4,14 @@ import Form from "@/app/_components/Form";
 
 import { useState } from "react";
 
-function AddProduct(props) {
+export default function ProductDetails(props) {
 	const [formData, setFormData] = useState({
-		productName: "",
-		description: "",
-		category: "",
-		brandName: "",
-		price: "",
-		stockQuantity: "",
+		productName: "lorem",
+		description: "lorem",
+		category: "lorem",
+		brandName: "lorem",
+		price: "lorem",
+		stockQuantity: "lorem",
 	});
 
 	const handleFormdata = (e) => {
@@ -33,5 +33,3 @@ function AddProduct(props) {
 		</div>
 	);
 }
-
-export default AddProduct;
