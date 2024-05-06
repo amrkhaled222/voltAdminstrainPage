@@ -58,7 +58,7 @@ function ProductDetails() {
 	};
 	let router = useRouter();
 	const handleClickingCancle = () => {
-		router.push("/allProduct");
+		router.push("/productDetails");
 	};
 
 	return (
