@@ -5,8 +5,6 @@ import { opensans } from "../font";
 function Dropzone({ setFiles, setRejected, filesLen, setUploadExceed }) {
 	const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
 		if (acceptedFiles?.length) {
-			console.log(filesLen);
-
 			setFiles((previousFiles) => {
 				if (previousFiles.length == 4) {
 					setUploadExceed(true);
