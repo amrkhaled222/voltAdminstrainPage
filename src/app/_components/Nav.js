@@ -20,9 +20,9 @@ export default function Nav() {
 	const pathname = usePathname();
 
 	return (
-		<nav className="  flex-col  100% max-w-[260px] px-5 py-8 gap-8 rounded-sm shadow-md hidden md:flex    ">
+		<nav className="  flex-col row-span-3  100% max-w-[260px] px-5 py-8 gap-8 rounded-sm shadow-md hidden md:flex bg-[#fafafa]   ">
 			<h1 className="text-darkBlue font-semibold  text-5xl">Volt</h1>
-			<ul className=" list-none flex-col gap-3 ">
+			<ul className=" list-none flex-col gap-3 bg-[#fafafa] ">
 				<li>
 					<Link
 						href={"/dashboard"}

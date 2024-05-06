@@ -18,8 +18,18 @@ import { useState, useRef, useEffect } from "react";
 function MobileNav() {
 	const [menu, tooglemenu] = useState(false);
 
+	const stopScrolling = (e) => {
+		if (e) {
+			document.querySelector("body").classList.remove("overflow-hidden");
+		} else {
+			document.querySelector("body").classList.add("overflow-hidden");
+		}
+	};
 	const handleburgerbutton = () => {
-		tooglemenu((e) => !e);
+		tooglemenu((e) => {
+			stopScrolling(e);
+			return !e;
+		});
 	};
 	const pathname = usePathname();
 
@@ -41,18 +51,22 @@ function MobileNav() {
 	}, [menu]);
 
 	useEffect(() => {
-		tooglemenu(false);
+		tooglemenu((e) => {
+			document.querySelector("body").classList.remove("overflow-hidden");
+			return false;
+		});
 	}, [pathname]);
+
 	let transitionin = " translate-x-0  opacity-100";
 	let transitionout = " translate-x-[-100%]  opacity-0";
 	let linkStyling =
-		"flex uppercase  text-sm hover:scale-95 py-4 rounded-md duration-300 px-2 flex gap-3 item-center  ";
+		"flex uppercase  text-sm hover:scale-95 py-4   rounded-md duration-300 px-2 flex gap-3 item-center  ";
 
 	return (
 		<div>
 			{menu && (
 				<div
-					className={`h-svh w-full bg-overlay  absolute  left-0 top-16  z-10`}></div>
+					className={`h-svh w-full bg-overlay   absolute  left-0 top-16  z-10`}></div>
 			)}
 
 			<div

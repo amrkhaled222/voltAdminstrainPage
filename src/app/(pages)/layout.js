@@ -42,76 +42,77 @@ export default function RootLayout({ children }) {
 	let transitionin = " translate-x-0  opacity-100";
 	let transitionout = " -translate-x-[700%]  opacity-0 ";
 	return (
-		<main className=" m-auto md:grid md:grid-cols-[260px,1fr] max-w-[1440px] min-h-svh  ">
+		<main className=" m-auto md:grid md:grid-cols-[260px,1fr]  max-w-[1440px] min-h-[107vh] relative bg-mainBg  grid-rows-layout  ">
 			<Nav></Nav>
 
-			<div className=" relative  bg-mainBg  min-h-[107vh]  ">
-				<header className="  shadow-md  relative bg-[#FAFAFA] ">
-					<div className=" flex md:justify-end items-center justify-between m-auto p-2 md:p-5 container md:mr-auto  z-10">
-						<div>
-							<MobileNav></MobileNav>
-						</div>
-						<div className="flex gap-4 items-center   ">
-							<button className="cursor-pointer">
+			<header className="  shadow-md  relative bg-[#FAFAFA] ">
+				<div className=" flex md:justify-end items-center justify-between m-auto p-2 md:p-5 container md:mr-auto  z-10">
+					<div>
+						<MobileNav></MobileNav>
+					</div>
+					<div className="flex gap-4 items-center   ">
+						<button className="cursor-pointer">
+							<Image
+								alt="notification"
+								className=" w-6 h-6 hover:scale-95 duration-300"
+								src={notification}></Image>
+						</button>
+
+						<div
+							ref={AdminRef}
+							className="uppercase ">
+							<div
+								onClick={handleAdminButton}
+								className={`flex px-4 py-2 uppercase rounded-md  items-center gap-1  border-2 cursor-pointer hover:scale-95 duration-300 ${
+									AdminActive
+										? "bg-darkBlue text-white border-darkBlue   "
+										: "border-black"
+								} `}>
+								Admin
 								<Image
-									alt="notification"
-									className=" w-6 h-6 hover:scale-95 duration-300"
-									src={notification}></Image>
-							</button>
+									alt="downArrow"
+									className=" w-4 h-4"
+									src={
+										AdminActive ? downArrowActive : downArrowNonActive
+									}></Image>
+							</div>
 
 							<div
-								ref={AdminRef}
-								className="uppercase ">
-								<div
-									onClick={handleAdminButton}
-									className={`flex px-4 py-2 uppercase rounded-md  items-center gap-1  border-2 cursor-pointer hover:scale-95 duration-300 ${
-										AdminActive
-											? "bg-darkBlue text-white border-darkBlue   "
-											: "border-black"
-									} `}>
-									Admin
+								className={`w-1/2 sm:w-[230px]  absolute bg-white duration-500 ease-in-out  ${
+									AdminActive ? ` ${transitionin} ` : ` ${transitionout}`
+								} flex flex-col  top-20 md:top-[110px]  right-8 text-black  z-20 p-4 rounded-md text-sm w-1/2   lg:gap-4 gap-2  `}>
+								<h2 className=" font-medium capitalize p-1">Admin</h2>
+								<Link
+									href={""}
+									className="flex items-center justify-between p-1 hover:scale-95 duration-300">
+									change password{" "}
 									<Image
-										alt="downArrow"
-										className=" w-4 h-4"
-										src={
-											AdminActive ? downArrowActive : downArrowNonActive
-										}></Image>
-								</div>
-
-								<div
-									className={`w-1/2 sm:w-[230px]  absolute bg-white duration-500 ease-in-out  ${
-										AdminActive ? ` ${transitionin} ` : ` ${transitionout}`
-									} flex flex-col  top-20 md:top-[110px]  right-8 text-black  z-20 p-4 rounded-md text-sm w-1/2   lg:gap-4 gap-2  `}>
-									<h2 className=" font-medium capitalize p-1">Admin</h2>
-									<Link
-										href={""}
-										className="flex items-center justify-between p-1 hover:scale-95 duration-300">
-										change password{" "}
-										<Image
-											src={nextIcon}
-											alt="arrowIcon"
-											className="w-4 h-4"></Image>
-									</Link>
-									<Link
-										className="flex items-center justify-between p-1 hover:scale-95 duration-300"
-										href={""}>
-										log out{" "}
-										<Image
-											className="w-4 h-4"
-											src={logOutIcon}
-											alt="logOut"></Image>
-									</Link>
-								</div>
+										src={nextIcon}
+										alt="arrowIcon"
+										className="w-4 h-4"></Image>
+								</Link>
+								<Link
+									className="flex items-center justify-between p-1 hover:scale-95 duration-300"
+									href={""}>
+									log out{" "}
+									<Image
+										className="w-4 h-4"
+										src={logOutIcon}
+										alt="logOut"></Image>
+								</Link>
 							</div>
 						</div>
 					</div>
-				</header>
-				<div className="">
+				</div>
+			</header>
+
+			<div className=" row-start-2 col-start-2">
+				<div className="relative h-[100%]">
 					{/* make over lay*/}
 
 					{AdminActive && (
 						<div
-							className={` lg:h-[91%] h-[95%] w-full bg-overlay absolute top-50 z-10`}></div>
+							className={`  h-[100%] w-full bg-overlay absolute top-50 z-10`}></div>
 					)}
 					<PathTitle></PathTitle>
 

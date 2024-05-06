@@ -11,7 +11,7 @@ function Row(props) {
 			onClick={() => {
 				router.push(`orderList/orderDetails/${props.orderId}`);
 			}}
-			className={`"bg-white border-b ${opensans.className} text-sm font-semibold  text-black hover:scale-95 duration-300 `}>
+			className={`"bg-white border-b ${opensans.className} text-sm font-semibold cursor-pointer  text-black hover:scale-95 duration-300 `}>
 			<th
 				scope="row"
 				className="px-6 py-4 font-medium text-gray-900 whitespace-normal ">

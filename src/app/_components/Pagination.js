@@ -51,17 +51,15 @@ export default function Example({ nPages, currentPage, setCurrentPage }) {
 						{pageNumbers.map((e) => {
 							return (
 								<li
+									onClick={() => {
+										setCurrentPage(e);
+									}}
 									key={e}
 									aria-current="page"
 									className={`flex cursor-pointer hover:scale-95 duration-300 items-center px-4  text-sm  font-medium border rounded-lg border-black ${
 										e == currentPage && "bg-black text-white"
 									}   `}>
-									<button
-										onClick={() => {
-											setCurrentPage(e);
-										}}>
-										{e}
-									</button>
+									{e}
 								</li>
 							);
 						})}

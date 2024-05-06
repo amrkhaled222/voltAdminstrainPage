@@ -7,12 +7,18 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			backgroundImage: {},
+			backgroundImage: {
+				uploasImg: "url(./_assets/image.png)",
+			},
 			gridTemplateColumns: {
 				// added new 4 column grid as new4
 				table: "repeat(1, minmax(0, 1fr))",
+
 				autoFlow: " repeat(auto-fill, minmax(280px, 370px));",
 				autoFlowMobile: " repeat(auto-fill, minmax(280px, 300px));",
+			},
+			gridTemplateRows: {
+				layout: "100px 1fr",
 			},
 			colors: {
 				darkGrey: "#232321",

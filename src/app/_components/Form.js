@@ -5,7 +5,7 @@ export default function Form({ formData, formFunc }) {
 	let lableStyle = " font-semibold text-lg capitalize";
 	let parentDivStyle = "flex flex-col gap-3";
 	return (
-		<div className=" basis-[59%]">
+		<div className=" lg:basis-[59%]">
 			<form
 				method="post"
 				className="flex flex-col p-4  gap-5 ">
