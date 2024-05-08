@@ -40,7 +40,10 @@ function MobileNav() {
 
 		const handleOutSideClick = (event) => {
 			if (menuRef.current && !menuRef.current.contains(event.target)) {
-				tooglemenu(() => false);
+				tooglemenu(() => {
+					document.querySelector("body").classList.remove("overflow-hidden");
+					return false;
+				});
 			}
 		};
 
